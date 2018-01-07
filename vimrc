@@ -4,6 +4,8 @@ execute pathogen#infect()
 
 " Set color scheme
 colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+set background=dark
 
 
 " Set options for NERDTree
@@ -50,6 +52,7 @@ set showcmd                     " show (partial) command in the last line of the
 set nomodeline                  " disable mode lines (security measure)
 "set ttyfast                     " always use a fast terminal
 set cursorline                  " underline the current line, for quick orientation
+set backspace=indent,eol,start
 " }}}
 
 " Shortcut mappings {{{
