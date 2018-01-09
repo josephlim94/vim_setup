@@ -52,7 +52,8 @@ set showcmd                     " show (partial) command in the last line of the
 set nomodeline                  " disable mode lines (security measure)
 "set ttyfast                     " always use a fast terminal
 set cursorline                  " underline the current line, for quick orientation
-set backspace=indent,eol,start
+set backspace=indent,eol,start  " backspace through "various" characters
+set paste                       " so that can paste correctly into vim
 " }}}
 
 " Shortcut mappings {{{
