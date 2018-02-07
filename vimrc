@@ -61,7 +61,8 @@ set noundofile                  " do not save undo from previous edit
 set ttimeout	                " time out for key codes
 set ttimeoutlen=100             " wait up to 100ms after Esc for special key
 
-set display=truncate            " show @@@ in the last line if it is truncated
+" Invalid argument in workplace ubuntu server
+" set display=truncate            " show @@@ in the last line if it is truncated
 
 " Do incremental searching when it's possible to timeout.
 if has('reltime')
