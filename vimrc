@@ -224,8 +224,30 @@ nnoremap <leader>m :NERDTreeClose<CR>:NERDTreeFind<CR>
 nnoremap <leader>N :NERDTreeClose<CR>
 " }}}
 
+" Tagbar settings {{{
+nmap <F8> :TagbarToggle<CR>
+" }}}
+
 " Mouse mappings {{{
 " nnoremap <2-LeftMouse> :exe "tag ". expand("<cword>")<CR>
+" }}}
+
+" Configurations under tests {{{
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 " }}}
 
 
@@ -384,6 +406,12 @@ endfun
 if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
+
+"Easy access to vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+"Reload vimrc
+nnoremap <leader>rv :source $MYVIMRC<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
