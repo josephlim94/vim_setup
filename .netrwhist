@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/joseph/projects/calculator/source'
 let g:netrw_dirhist_2='/home/joseph/projects'
 let g:netrw_dirhist_3='/home/joseph/projects/calculator'
 let g:netrw_dirhist_4='/home/joseph/projects/calculator/source'
 let g:netrw_dirhist_5='/home/joseph/projects/calculator'
 let g:netrw_dirhist_6='/home/joseph/projects/calculator/source'
+let g:netrw_dirhist_7='/data/rmjv83/tetra1/tetra/utils/python_scripts/mkini'

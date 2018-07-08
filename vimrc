@@ -1,5 +1,6 @@
 " Start package manager
 execute pathogen#infect()
+call pathogen#helptags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -425,6 +426,49 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CScope
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("cscope")
+
+set csprg=cscope
+set csto=0
+set cst
+set nocsverb
+
+
+let GtagsCscope_Auto_Load = 1
+let GtagsCscope_Auto_Map = 1
+let GtagsCscope_Quiet = 1
+let GtagsCscope_Absolute_Path = 1
+set cscopetag
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
+""""""""""""" My cscope/vim key mappings
+"
+" The following maps all invoke one of the following cscope search types:
+"
+"   's'   symbol: find all references to the token under cursor
+"   'g'   global: find global definition(s) of the token under cursor
+"   'c'   calls:  find all calls to the function name under cursor
+"   't'   text:   find all instances of the text under cursor
+"   'e'   egrep:  egrep search for the word under cursor
+"   'f'   file:   open the filename under cursor
+"   'i'   includes: find files that include the filename under cursor
+"   'd'   called: find functions that function under cursor calls
+
+nmap <C-\>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>g :tab cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>c :tab cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>t :tab cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>e :tab cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-\>f :tab cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-\>i :tab cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :tab cs find d <C-R>=expand("<cword>")<CR><CR>
+endif "if has("cscope")
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
