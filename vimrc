@@ -409,7 +409,12 @@ if has("autocmd")
 endif
 
 "Easy access to vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Change to open new tab instead
+" nnoremap <leader>ev :tabnew<cr>:edit $MYVIMRC<cr>
+" Change to open personal vimrc and change local working directory to the path
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+nnoremap <leader>ev :tabnew<cr>:edit $HOME/.vim/vimrc<cr>:lcd %:p:h<cr>
 
 "Reload vimrc
 nnoremap <leader>rv :source $MYVIMRC<cr>
@@ -434,7 +439,6 @@ map <leader>s? z=
 if has("cscope")
 
 set csprg=cscope
-set csto=0
 set cst
 set nocsverb
 
@@ -443,31 +447,9 @@ let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Auto_Map = 1
 let GtagsCscope_Quiet = 1
 let GtagsCscope_Absolute_Path = 1
-set cscopetag
 
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-""""""""""""" My cscope/vim key mappings
-"
-" The following maps all invoke one of the following cscope search types:
-"
-"   's'   symbol: find all references to the token under cursor
-"   'g'   global: find global definition(s) of the token under cursor
-"   'c'   calls:  find all calls to the function name under cursor
-"   't'   text:   find all instances of the text under cursor
-"   'e'   egrep:  egrep search for the word under cursor
-"   'f'   file:   open the filename under cursor
-"   'i'   includes: find files that include the filename under cursor
-"   'd'   called: find functions that function under cursor calls
-
-nmap <C-\>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>g :tab cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>c :tab cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>t :tab cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>e :tab cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-\>f :tab cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <C-\>i :tab cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :tab cs find d <C-R>=expand("<cword>")<CR><CR>
 endif "if has("cscope")
 
 
