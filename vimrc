@@ -357,7 +357,10 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers 
 try
-  set switchbuf=useopen,usetab,newtab
+  " set switchbuf=useopen,usetab,newtab
+  " Don't open new tab when opening a new buffer
+  set switchbuf=useopen,usetab
+  " Set tab line to be always visible
   set stal=2
 catch
 endtry
@@ -442,11 +445,11 @@ set csprg=cscope
 set cst
 set nocsverb
 
-
 let GtagsCscope_Auto_Load = 1
 let GtagsCscope_Auto_Map = 1
 let GtagsCscope_Quiet = 1
 let GtagsCscope_Absolute_Path = 1
+set cscopetag
 
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 
